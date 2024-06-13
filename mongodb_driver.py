@@ -1,22 +1,16 @@
 import logging
 
 from pymongo import MongoClient
-
 from pymongo.database import Database
-
-
 from datetime import datetime
-
 from dataclasses import dataclass
 from dataclasses import field
-
 from db_models import Faults
 from db_models import Records
 from db_models import RecordxDevices
 from db_models import Inverters
 from db_models import Device_type_enum
 from db_models import Collections, Data_enum
-
 
 
 # Constants
