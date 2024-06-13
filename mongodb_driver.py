@@ -28,7 +28,7 @@ class mongodb_driver:
     # Non-required Parameters
     client: MongoClient = field(default=None, init=False)
     db: Database = field(default=None, init=False)
-    
+
     def __post_init__(self) -> str:
         try:
             self.client = MongoClient(host=self.host, port=self.port, connectTimeoutMS=self.timeout)
@@ -40,7 +40,7 @@ class mongodb_driver:
 
     def create_id_record(self) -> str:
         val_return: str = str()
-        
+
         try:
             collection = self.db[Collections.RECORDS]
             record = {Records.TIMESTAMP: datetime.now().strftime(BD_DATE_FORMAT)}
@@ -55,22 +55,48 @@ class mongodb_driver:
         val_return: str = str()      
 
         try:
-          # save data in sensor or node collection
+            # save data in sensor or node collection
             if record[Data_enum.DEVICE_TYPE] == Device_type_enum.INVERTER:
                 valid_keys = {val for val in Inverters}
                 filtered_data = {key: val for key, val in record.items() if key in valid_keys}
                 filtered_data[Data_enum.SENT] = False
                 collection = self.db[Collections.INVERTERS]
                 val_return = collection.insert_one(filtered_data).inserted_id
-            
+
             elif record[Data_enum.DEVICE_TYPE] == Device_type_enum.FAULT:
-                print(record[RecordxDevices.DEVICE_TYPES])
+
                 valid_keys = {val for val in Faults}
                 filtered_data = {key: val for key, val in record.items() if key in valid_keys}
                 filtered_data[Data_enum.SENT] = False
                 collection = self.db[Collections.FAULTS]
                 val_return = collection.insert_one(filtered_data).inserted_id
-                
+
+            elif record[Data_enum.DEVICE_TYPE] == Device_type_enum.MET_SENSOR:
+                valid_keys = {val for val in Records}
+                filtered_data = {
+                    key: val for key, val in record.items() if key in valid_keys
+                }
+                filtered_data[Data_enum.SENT] = False
+                collection = self.db[Collections.RECORDS]
+                val_return = collection.insert_one(filtered_data).inserted_id
+
+            elif record[Data_enum.DEVICE_TYPE] == Device_type_enum.MONITORING:
+                valid_keys = {val for val in Records}
+                filtered_data = {
+                    key: val for key, val in record.items() if key in valid_keys
+                }
+                filtered_data[Data_enum.SENT] = False
+                collection = self.db[Collections.RECORDS]
+                val_return = collection.insert_one(filtered_data).inserted_id
+
+            elif record[Data_enum.DEVICE_TYPE] == Device_type_enum.POWER_METER:
+                valid_keys = {val for val in Records}
+                filtered_data = {
+                    key: val for key, val in record.items() if key in valid_keys
+                }
+                filtered_data[Data_enum.SENT] = False
+                collection = self.db[Collections.RECORDS]
+                val_return = collection.insert_one(filtered_data).inserted_id
 
             if val_return and self.logger:
                 self.logger.debug(f"Record inserted succesfully: {record}")
