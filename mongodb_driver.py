@@ -7,10 +7,10 @@ from dataclasses import dataclass
 from dataclasses import field
 from db_models import Faults
 from db_models import Records
-from db_models import RecordxDevices
 from db_models import Inverters
 from db_models import Device_type_enum
-from db_models import Collections, Data_enum
+from db_models import Collections
+from db_models import Data_enum
 
 
 # Constants
@@ -55,7 +55,6 @@ class mongodb_driver:
         val_return: str = str()      
 
         try:
-            # save data in sensor or node collection
             if record[Data_enum.DEVICE_TYPE] == Device_type_enum.INVERTER:
                 valid_keys = {val for val in Inverters}
                 filtered_data = {key: val for key, val in record.items() if key in valid_keys}
