@@ -1,8 +1,6 @@
 # ModbusDatabaseDriver
 
-<p align="center">
-  <img width="460" height="300" src="[https://www.pexels.com/photo/photo-of-grey-tabby-kitten-lying-down-2558605/](https://github.com/gjaimeosorio/compulab_test/assets/20956902/fc053175-cac5-46d1-977c-e7c76e98179f)">
-</p>
+<img width="182" alt="image" src="https://github.com/gjaimeosorio/compulab_test/assets/20956902/27611ca6-2cd6-414d-b149-c5dc9d508a54">
 
 `ModbusDatabaseDriver` is a class that interacts with a MongoDB database to manage Modbus records and devices. Below is a description of each method in the class and its functionality.
 
