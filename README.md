@@ -1,151 +1,151 @@
 # ModbusDatabaseDriver
 
-`ModbusDatabaseDriver` es una clase que interactúa con una base de datos MongoDB para gestionar registros y dispositivos Modbus. A continuación se describe cada método de la clase y su funcionalidad.
+`ModbusDatabaseDriver` is a class that interacts with a MongoDB database to manage Modbus records and devices. Below is a description of each method in the class and its functionality.
 
-## Tabla de Contenidos
-- [Inicialización](#inicialización)
-- [Métodos Privados](#métodos-privados)
-- [Métodos Públicos](#métodos-públicos)
-- [Ejemplo de Uso](#ejemplo-de-uso)
+## Table of Contents
+- [Initialization](#initialization)
+- [Private Methods](#private-methods)
+- [Public Methods](#public-methods)
+- [Usage Example](#usage-example)
 
-## Inicialización
+## Initialization
 
 ### `__post_init__()`
-Este método se llama automáticamente después de la inicialización del objeto. Configura el archivo de configuración, el registro y establece la conexión a la base de datos MongoDB.
+This method is automatically called after the object initialization. It sets up the configuration file, logging system, and establishes the MongoDB database connection.
 
-**Descripción:**
-- Propósito: Inicializa la configuración, el sistema de registro y la conexión a la base de datos.
-- Atributos:
-  - `config_path`: Ruta del archivo de configuración.
-  - `config`: Configuración leída del archivo `config_path`.
-  - `database`: Cliente de la base de datos MongoDB.
+**Description:**
+- Purpose: Initializes the configuration, logging system, and database connection.
+- Attributes:
+  - `config_path`: Path to the configuration file.
+  - `config`: Configuration read from the `config_path`.
+  - `database`: MongoDB client database.
 
-## Métodos Privados
+## Private Methods
 
 ### `_setup_logging()`
-Configura el sistema de registro según las configuraciones proporcionadas en el archivo de configuración.
+Sets up the logging system based on the provided configurations in the configuration file.
 
-**Descripción:**
-- Propósito: Configurar el nivel y destino del registro (archivo, stdout).
-- Atributos:
-  - `loglevel`: Nivel de registro.
-  - `logstdout`: Indicador de registro en stdout.
-  - `logfile`: Archivo de registro.
+**Description:**
+- Purpose: Configure the logging level and destination (file, stdout).
+- Attributes:
+  - `loglevel`: Logging level.
+  - `logstdout`: Indicator for logging to stdout.
+  - `logfile`: Log file.
 
 ### `_get_database_client()`
-Establece la conexión con el cliente de la base de datos MongoDB utilizando las configuraciones proporcionadas.
+Establishes the connection to the MongoDB client using the provided configurations.
 
-**Descripción:**
-- Propósito: Conectar con la base de datos MongoDB.
-- Atributos:
-  - `host`: Host de la base de datos.
-  - `port`: Puerto de la base de datos.
-  - `database_name`: Nombre de la base de datos.
+**Description:**
+- Purpose: Connect to the MongoDB database.
+- Attributes:
+  - `host`: Database host.
+  - `port`: Database port.
+  - `database_name`: Database name.
 
 ### `_get_all_records()`
-Obtiene todos los registros de la colección especificada.
+Retrieves all records from the specified collection.
 
-**Descripción:**
-- Propósito: Obtener todos los registros de una colección.
-- Atributos:
-  - `collection_name`: Nombre de la colección.
-  - `val_return`: Lista de registros obtenidos.
+**Description:**
+- Purpose: Retrieve all records from a collection.
+- Attributes:
+  - `collection_name`: Name of the collection.
+  - `val_return`: List of obtained records.
 
-## Métodos Públicos
+## Public Methods
 
 ### `create_id_record()`
-Crea un nuevo registro de ID en la base de datos.
+Creates a new ID record in the database.
 
-**Descripción:**
-- Propósito: Generar un nuevo ID para un registro.
-- Atributos:
-  - `collection_name`: Nombre de la colección de registros.
-  - `id_record`: ID del nuevo registro.
+**Description:**
+- Purpose: Generate a new ID for a record.
+- Attributes:
+  - `collection_name`: Name of the records collection.
+  - `id_record`: ID of the new record.
 
 ### `insert_device_record(device_data)`
-Inserta un nuevo registro de dispositivo en la base de datos.
+Inserts a new device record into the database.
 
-**Descripción:**
-- Propósito: Insertar datos de un dispositivo.
-- Atributos:
-  - `device_data`: Datos del dispositivo a insertar.
-  - `inserted_id`: ID del registro insertado.
+**Description:**
+- Purpose: Insert device data.
+- Attributes:
+  - `device_data`: Data of the device to insert.
+  - `inserted_id`: ID of the inserted record.
 
 ### `get_all_records()`
-Obtiene todos los registros de la colección de dispositivos.
+Retrieves all records from the devices collection.
 
-**Descripción:**
-- Propósito: Obtener todos los registros de dispositivos.
-- Atributos:
-  - `collection_name`: Nombre de la colección de dispositivos.
-  - `val_return`: Lista de registros de dispositivos.
+**Description:**
+- Purpose: Retrieve all device records.
+- Attributes:
+  - `collection_name`: Name of the devices collection.
+  - `val_return`: List of device records.
 
 ### `get_all_device_unsent()`
-Obtiene todos los registros de dispositivos que no han sido enviados.
+Retrieves all unsent device records.
 
-**Descripción:**
-- Propósito: Obtener registros de dispositivos no enviados.
-- Atributos:
-  - `collection_name`: Nombre de la colección de dispositivos.
-  - `val_return`: Lista de registros no enviados.
+**Description:**
+- Purpose: Retrieve unsent device records.
+- Attributes:
+  - `collection_name`: Name of the devices collection.
+  - `val_return`: List of unsent records.
 
 ### `update_device_data(id_record, device_type, new_data)`
-Actualiza un registro de dispositivo específico.
+Updates a specific device record.
 
-**Descripción:**
-- Propósito: Actualizar los datos de un dispositivo.
-- Atributos:
-  - `id_record`: ID del registro a actualizar.
-  - `device_type`: Tipo de dispositivo.
-  - `new_data`: Datos actualizados del dispositivo.
-  - `val_return`: Indicador de éxito de la actualización.
+**Description:**
+- Purpose: Update the data of a device.
+- Attributes:
+  - `id_record`: ID of the record to update.
+  - `device_type`: Type of device.
+  - `new_data`: Updated device data.
+  - `val_return`: Success indicator of the update.
 
 ### `delete_device_by_id_record(id_record, device_type)`
-Elimina un registro de dispositivo por ID.
+Deletes a device record by ID.
 
-**Descripción:**
-- Propósito: Eliminar un registro de dispositivo por su ID.
-- Atributos:
-  - `id_record`: ID del registro a eliminar.
-  - `device_type`: Tipo de dispositivo.
-  - `val_return`: Indicador de éxito de la eliminación.
+**Description:**
+- Purpose: Delete a device record by its ID.
+- Attributes:
+  - `id_record`: ID of the record to delete.
+  - `device_type`: Type of device.
+  - `val_return`: Success indicator of the deletion.
 
 ### `delete_device_by_date(start_date, end_date, device_type)`
-Elimina registros de dispositivos por rango de fechas.
+Deletes device records by date range.
 
-**Descripción:**
-- Propósito: Eliminar registros de dispositivos dentro de un rango de fechas.
-- Atributos:
-  - `start_date`: Fecha de inicio del rango.
-  - `end_date`: Fecha de fin del rango.
-  - `device_type`: Tipo de dispositivo.
-  - `val_return`: Indicador de éxito de la eliminación.
+**Description:**
+- Purpose: Delete device records within a date range.
+- Attributes:
+  - `start_date`: Start date of the range.
+  - `end_date`: End date of the range.
+  - `device_type`: Type of device.
+  - `val_return`: Success indicator of the deletion.
 
 ### `get_device_by_id_record(id_record)`
-Obtiene un registro de dispositivo por su ID.
+Retrieves a device record by its ID.
 
-**Descripción:**
-- Propósito: Obtener un registro de dispositivo por su ID.
-- Atributos:
-  - `id_record`: ID del registro a obtener.
-  - `val_return`: Registro del dispositivo obtenido.
+**Description:**
+- Purpose: Retrieve a device record by its ID.
+- Attributes:
+  - `id_record`: ID of the record to retrieve.
+  - `val_return`: Retrieved device record.
 
-## Ejemplo de Uso
+## Usage Example
 
-### Inicialización del Driver
+### Driver Initialization
 ```python
 from modbus_database_driver import ModbusDatabaseDriver
 
-# Inicializar el driver con la ruta del archivo de configuración
+# Initialize the driver with the configuration file path
 driver = ModbusDatabaseDriver(config_path="path/to/config.ini")
 
 
-# Crear un nuevo registro y obtener su ID
+# Create a new record and obtain its ID
 record_id = driver.create_id_record()
 print(f"Created record ID: {record_id}")
 
 
-# Insertar un nuevo registro de dispositivo
+# Insert a new device record
 device_record = {
     "device_type": "INVERTER",
     "data": "sample data"
@@ -154,38 +154,33 @@ inserted_id = driver.insert_device_record(device_record)
 print(f"Inserted device record ID: {inserted_id}")
 
 
-# Obtener todos los registros
+# Get all records
 all_records = driver.get_all_records()
 print(f"All records: {all_records}")
 
 
-# Obtener todos los registros de dispositivos no enviados
+# Get all unsent device records
 unsent_records = driver.get_all_device_unsent()
 print(f"Unsent device records: {unsent_records}")
 
 
-
-# Actualizar un registro de dispositivo
+# Update a device record
 update_data = {"new_data": "updated data"}
 update_success = driver.update_device_data(record_id, "INVERTER", update_data)
 print(f"Update success: {update_success}")
 
 
-
-# Eliminar un registro de dispositivo por ID
+# Delete a device record by ID
 delete_success = driver.delete_device_by_id_record(record_id, "INVERTER")
 print(f"Delete success: {delete_success}")
 
 
-
-# Eliminar registros de dispositivos por rango de fechas
+# Delete device records by date range
 delete_by_date_success = driver.delete_device_by_date("2023-01-01", "2023-12-31", "INVERTER")
 print(f"Delete by date success: {delete_by_date_success}")
 
 
-
-
-# Obtener un registro de dispositivo por ID
+# Get a device record by ID
 device_record = driver.get_device_by_id_record(record_id)
 print(f"Device record: {device_record}")
 ```
