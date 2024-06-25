@@ -1,6 +1,6 @@
 # ModbusDatabaseDriver
 
-<img align="right" width="120" height="120" src="https://github.com/gjaimeosorio/compulab_test/assets/20956902/fc053175-cac5-46d1-977c-e7c76e98179f">
+<img align="center" width="600" height="600" src="https://github.com/gjaimeosorio/compulab_test/assets/20956902/fc053175-cac5-46d1-977c-e7c76e98179f">
 
 
 ![image](https://github.com/gjaimeosorio/compulab_test/assets/20956902/fc053175-cac5-46d1-977c-e7c76e98179f)
