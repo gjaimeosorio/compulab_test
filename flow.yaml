@@ -1,3 +1,5 @@
 elements:
-  inbox_depth:
-    text: "TEST 123"
+  start_rate:
+    text: "Start rate: ${start_rate:.2f} A"
+
+
