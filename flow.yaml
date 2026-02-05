@@ -1,7 +1,8 @@
-elements:
-  start_rate:
-    dataRef: start_rate
-    text: "Start rate: 2"
-
+mappings:
+  - pattern: start_rate
+    type: value
+    aggregation: last
+    field: start_rate
+    textPattern: '${__value}'
 
 
