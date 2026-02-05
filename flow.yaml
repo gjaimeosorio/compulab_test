@@ -1,5 +1,5 @@
 diagram:
-  file: /var/lib/grafana/plugins/andrewbmchugh-flow-panel/flow.svg
+  url: https://raw.githubusercontent.com/gjaimeosorio/compulab_test/refs/heads/main/flow.svg
 
 cells:
 
@@ -8,7 +8,7 @@ cells:
     fill:
       thresholds:
         - value: 0
-          color: "#bdbdbd"
+          color: "#e0e0e0"
         - value: 1
           color: "#4caf50"
         - value: 10
