@@ -1,15 +1,28 @@
-elements:
-  kKMvXbeAcFrTI7bnWbd2-1:
-    dataRef: start_rate
+diagram:
+  file: /var/lib/grafana/plugins/andrewbmchugh-flow-panel/flow.svg
+
+cells:
+
+  motor:
+    dataRef: A.start_rate
+    fill:
+      thresholds:
+        - value: 0
+          color: "#bdbdbd"
+        - value: 1
+          color: "#4caf50"
+        - value: 10
+          color: "#ff9800"
+
+  flow_arrow:
+    dataRef: A.start_rate
 
     stroke:
       thresholds:
         - value: 0
           color: "#9e9e9e"
         - value: 1
-          color: "#00c853"
-        - value: 10
-          color: "#ff9800"
+          color: "#2196f3"
 
     animate:
       enabled: true
@@ -17,7 +30,3 @@ elements:
         scale: linear
         min: 0
         max: 10
-
-
-
-
