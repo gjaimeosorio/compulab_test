@@ -1,22 +1,6 @@
-diagram:
-  # Use ONE of these
-  # file: /var/lib/grafana/plugins/lehmannch-flow-panel/diagram.svg
-  url: https://raw.githubusercontent.com/gjaimeosorio/compulab_test/refs/heads/main/diagram2.svg
-
 mappings:
   - pattern: inbox_depth
     type: value
-    aggregation: current
-    field: Inbox Depth
-    textPattern: 'inbox_depth\n${__value}'
-    
-  - pattern: start_rate
-    type: value
-    aggregation: current
-    field: start rate
-    textPattern: 'start rate\n${__value}'
-
-
-
-
-
+    aggregation: last
+    field: inbox_depth
+    textPattern: 'Inbox Depth: ${__value}'
