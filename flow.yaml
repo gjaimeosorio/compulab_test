@@ -1,12 +1,23 @@
-cellIdPreamble: ''
-mappings:
-  - cellId: start_rate
-    dataRef:
-      queryName: A
-      field: start_rate
-    styleRef:
-      mappingType: value
-      textPattern: '${value}'
+elements:
+  kKMvXbeAcFrTI7bnWbd2-1:
+    dataRef: start_rate
+
+    stroke:
+      thresholds:
+        - value: 0
+          color: "#9e9e9e"
+        - value: 1
+          color: "#00c853"
+        - value: 10
+          color: "#ff9800"
+
+    animate:
+      enabled: true
+      speed:
+        scale: linear
+        min: 0
+        max: 10
+
 
 
 
