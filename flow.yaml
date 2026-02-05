@@ -2,7 +2,9 @@ mappings:
   - pattern: start_rate
     type: value
     aggregation: last
+    refId: A
     field: start_rate
     textPattern: '${__value}'
+
 
 
