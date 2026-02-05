@@ -5,12 +5,29 @@ diagram:
 
 mappings:
   - pattern: inbox_depth
-    field: "Inbox Depth"
     type: value
+    aggregation: current
+    field: Inbox Depth
+    textPattern: '${__value}'
+    
+  - pattern: inbox_depth
+    type: color
+    aggregation: current
+    field: Inbox Depth
+    thresholds:
+      - level: 0
+        color: '#73BF69'
+      - level: 50
+        color: '#FF9830'
+      - level: 100
+        color: '#F2495C'
     
   - pattern: start_rate
-    field: "start rate"
     type: value
+    aggregation: current
+    field: start rate
+    textPattern: '${__value}'
+
 
 
 
