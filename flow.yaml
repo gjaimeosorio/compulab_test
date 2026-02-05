@@ -1,10 +1,12 @@
+cellIdPreamble: ''
 mappings:
-  - pattern: start_rate
-    type: value
-    aggregation: last
-    refId: A
-    field: start_rate
-    textPattern: '${__value}'
+  - cellId: start_rate
+    dataRef:
+      queryName: A
+      field: start_rate
+    styleRef:
+      mappingType: value
+      textPattern: '${value}'
 
 
 
