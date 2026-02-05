@@ -1,7 +1,7 @@
 diagram:
   # Use ONE of these
   # file: /var/lib/grafana/plugins/lehmannch-flow-panel/diagram.svg
-  url: https://raw.githubusercontent.com/USER/REPO/main/diagram2.svg
+  url: https://raw.githubusercontent.com/gjaimeosorio/compulab_test/refs/heads/main/diagram2.svg
 
 defaults:
   transition:
@@ -35,3 +35,4 @@ edges:
     stroke-width: 3
     animate:
       when: ${start_rate} > 0
+
