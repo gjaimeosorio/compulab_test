@@ -1,6 +1,7 @@
 elements:
   start_rate:
     dataRef: start_rate
-    text: "Start rate: {{value}}"
+    text: "Start rate: 2"
+
 
 
