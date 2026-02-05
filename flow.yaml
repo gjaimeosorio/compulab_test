@@ -1,6 +1,3 @@
-mappings:
-  - pattern: inbox_depth
-    type: value
-    aggregation: last
-    field: inbox_depth
-    textPattern: 'Inbox Depth: ${__value}'
+elements:
+  inbox_depth:
+    text: "TEST 123"
