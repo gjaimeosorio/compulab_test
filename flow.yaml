@@ -3,12 +3,14 @@ diagram:
   # file: /var/lib/grafana/plugins/lehmannch-flow-panel/diagram.svg
   url: https://raw.githubusercontent.com/gjaimeosorio/compulab_test/refs/heads/main/diagram2.svg
 
-elements:
+mappings:
+  - pattern: inbox_depth
+    field: "Inbox Depth"
+    type: value
+    
+  - pattern: start_rate
+    field: "start rate"
+    type: value
 
-  inbox_depth:
-    text: "Inbox Depth\n${inbox_depth}"
-
-  start_rate:
-    text: "Start Rate\n${start_rate}"
 
 
