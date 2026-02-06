@@ -1,39 +1,36 @@
-diagram:
-  url: https://raw.githubusercontent.com/gjaimeosorio/compulab_test/refs/heads/main/flow.svg
+version: 1
 
-cells:
+# =========================
+# DATA
+# =========================
+data:
+  # El nombre DEBE coincidir con el alias del query
+  start_rate:
+    type: number
+    unit: none
+    decimals: 2
 
-  motor_box:
-    dataRef: start_rate
-    fill:
-      thresholds:
-        - value: 0
-          color: "#eeeeee"
-        - value: 0.1
-          color: "#81c784"
+# =========================
+# WIDGETS
+# =========================
+widgets:
+  - type: text
+    id: start_rate          # ID del <text> en el SVG
+    dataref: start_rate     # Alias del query SQL
+    format: "0.00"
+    default: "--"
 
-  arrow_start_rate:
-    dataRef: start_rate
-    stroke:
-      thresholds:
-        - value: 0
-          color: "#bdbdbd"
-        - value: 0.1
-          color: "#1e88e5"
-    animate:
-      enabled: true
-      speed:
-        scale: linear
-        min: 0
-        max: 1
+# =========================
+# STYLE (opcional)
+# =========================
+styles:
+  - target: start_rate
+    fill: "#22c55e"
+    fontSize: 24
+    fontWeight: bold
 
-  arrow_test_sin:
-    dataRef: test-data-small-sin
-    stroke:
-      thresholds:
-        - value: -1
-          color: "#ef5350"
-        - value: 0
-          color: "#ffee58"
-        - value: 1
-          color: "#66bb6a"
+# =========================
+# DEBUG (muy útil)
+# =========================
+debug:
+  enabled: true
