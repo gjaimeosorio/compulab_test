@@ -4,11 +4,12 @@ diagram:
 cells:
 
   inbox_depth:
-    dataRef: A.start_rate
+    dataRef: A.start_rate.values[0]
     label:
       textPattern: 'Inbox: ${value}'
 
   start_rate:
-    dataRef: A.start_rate
+    dataRef: A.start_rate.values[0]
     label:
       textPattern: 'Rate: ${value}'
+
