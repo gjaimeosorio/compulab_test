@@ -17,6 +17,8 @@ anchorLinks:
 #------------------------------------------------------------------------------
 # Panel Config
 
+decimalPoints: 2   # show 2 decimal places globally
+
 test:
   testDataBaseOffset: 1
   
@@ -92,3 +94,4 @@ cells:
       thresholds:
         - {color: "#888888", level: 0}
         - {color: "light-blue", level: 100}
+
