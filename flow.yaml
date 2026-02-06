@@ -3,14 +3,23 @@ diagram:
 
 cells:
 
+  motor_box:
+    dataRef: start_rate
+    fill:
+      thresholds:
+        - value: 0
+          color: "#eeeeee"
+        - value: 0.1
+          color: "#81c784"
+
   arrow_start_rate:
     dataRef: start_rate
     stroke:
       thresholds:
         - value: 0
-          color: "#9e9e9e"
+          color: "#bdbdbd"
         - value: 0.1
-          color: "#2196f3"
+          color: "#1e88e5"
     animate:
       enabled: true
       speed:
@@ -18,36 +27,13 @@ cells:
         min: 0
         max: 1
 
-  arrow_sin:
+  arrow_test_sin:
     dataRef: test-data-small-sin
     stroke:
       thresholds:
         - value: -1
-          color: "#ff5252"
+          color: "#ef5350"
         - value: 0
-          color: "#ffc107"
-        - value: 1
-          color: "#4caf50"
-
-  arrow_cos:
-    dataRef: test-data-small-cos
-    stroke:
-      thresholds:
-        - value: -1
-          color: "#ab47bc"
-        - value: 0
-          color: "#26c6da"
+          color: "#ffee58"
         - value: 1
           color: "#66bb6a"
-
-  motor_box:
-    dataRef: test-data-large-sin
-    fill:
-      thresholds:
-        - value: -50
-          color: "#eeeeee"
-        - value: 0
-          color: "#81d4fa"
-        - value: 50
-          color: "#ff8a65"
-
