@@ -17,8 +17,6 @@ anchorLinks:
 #------------------------------------------------------------------------------
 # Panel Config
 
-decimalPoints: 2   # show 2 decimal places globally
-
 test:
   testDataBaseOffset: 1
   
@@ -34,6 +32,7 @@ cells:
   inbox_depth:
     dataRef: "start_rate"
     label:
+      decimalPoints: 2
       separator: "cr"
       units: "none"
     labelColor:
@@ -94,4 +93,5 @@ cells:
       thresholds:
         - {color: "#888888", level: 0}
         - {color: "light-blue", level: 100}
+
 
