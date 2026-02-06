@@ -3,34 +3,39 @@ diagram:
 
 cells:
 
-  motor:
-    dataRef: A.inbox_depth
+  inbox_depth:
+    dataRef: A.start_rate
     label:
       textPattern: '${value}'
+      units: ''
+      decimalPoints: 2
     fill:
       thresholds:
         - value: 0
-          color: "#bdbdbd"
+          color: "#4caf50"
         - value: 50
           color: "#ff9800"
         - value: 100
           color: "#f44336"
 
-  flow_arrow:
+  start_rate:
     dataRef: A.start_rate
     label:
       textPattern: '${value}'
+      units: ''
+      decimalPoints: 3
     stroke:
       thresholds:
         - value: 0
           color: "#9e9e9e"
-        - value: 1
+        - value: 0.1
           color: "#2196f3"
-        - value: 10
-          color: "#ff5722"
+        - value: 0.5
+          color: "#ff9800"
     animate:
       enabled: true
       speed:
         scale: linear
         min: 0
-        max: 10
+        max: 1
+
