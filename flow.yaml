@@ -4,26 +4,30 @@ diagram:
 cells:
 
   motor:
-    dataRef: A.start_rate
+    dataRef: A.inbox_depth
+    label:
+      textPattern: '${value}'
     fill:
       thresholds:
         - value: 0
-          color: "#e0e0e0"
-        - value: 1
-          color: "#4caf50"
-        - value: 10
+          color: "#bdbdbd"
+        - value: 50
           color: "#ff9800"
+        - value: 100
+          color: "#f44336"
 
   flow_arrow:
     dataRef: A.start_rate
-
+    label:
+      textPattern: '${value}'
     stroke:
       thresholds:
         - value: 0
           color: "#9e9e9e"
         - value: 1
           color: "#2196f3"
-
+        - value: 10
+          color: "#ff5722"
     animate:
       enabled: true
       speed:
